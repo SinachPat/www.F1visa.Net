@@ -261,7 +261,15 @@ const pageCtx = createPublicPageContext({
 			// Scroll-reveal animation -- targets existing card/section classes
 			// directly, so pages never need animation-specific markup. Skipped
 			// entirely when the user prefers reduced motion.
-			if (window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+			//
+			// The IntersectionObserver check gates the whole block, not just the
+			// constructor: .anim-target sets opacity:0, so bailing out any later
+			// than this would leave every card permanently invisible instead of
+			// simply un-animated.
+			if (
+				window.matchMedia("(prefers-reduced-motion: no-preference)").matches &&
+				"IntersectionObserver" in window
+			) {
 				const REVEAL_SELECTOR = [
 					".problem-card", ".solution-card", ".diff-card", ".pricing-card",
 					".tier-card", ".testimonial-card", ".faq-item", ".journey-step",
@@ -337,6 +345,7 @@ const pageCtx = createPublicPageContext({
 					--color-primary-dark: #56308a;
 					--color-primary-light: #8b5fc7;
 					--color-primary-wash: rgba(108, 59, 170, 0.08);
+					--color-primary-on-wash: var(--color-primary-dark);
 					--color-accent: #f5a623;
 					--color-accent-light: #f8c25e;
 					--color-accent-wash: rgba(245, 166, 35, 0.12);
@@ -412,6 +421,7 @@ const pageCtx = createPublicPageContext({
 						--color-primary-dark: #8b5fc7;
 						--color-primary-light: #c1a8e8;
 						--color-primary-wash: rgba(166, 131, 214, 0.14);
+						--color-primary-on-wash: var(--color-primary-light);
 						--color-bg-inverse: #000000;
 						--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
 						--shadow: 0 1px 3px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.25);
@@ -432,6 +442,7 @@ const pageCtx = createPublicPageContext({
 					--color-primary-dark: #8b5fc7;
 					--color-primary-light: #c1a8e8;
 					--color-primary-wash: rgba(166, 131, 214, 0.14);
+					--color-primary-on-wash: var(--color-primary-light);
 					--color-bg-inverse: #000000;
 					--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
 					--shadow: 0 1px 3px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.25);
