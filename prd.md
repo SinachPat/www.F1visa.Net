@@ -192,7 +192,7 @@ F-1 visa students face **three interconnected problems** that no single solution
 │ └────────┘ │ └──────────┘ └────────────┘  │ └────────────┘  │
 ├────────────┴──────────────────────────────┴─────────────────┤
 │              INFRASTRUCTURE LAYER                             │
-│  DigitalOcean │ Cloudflare │ WeOwnLLM │ Z.ai GLM 5.2        │
+│  DigitalOcean │ Cloudflare │ WeOwnChat │ Z.ai GLM 5.2       │
 └──────────────────────────────────────────────────────────────┘
 ```
 
@@ -201,7 +201,7 @@ F-1 visa students face **three interconnected problems** that no single solution
 | Layer | Technology | Status |
 |:------|:-----------|:------:|
 | **Instance** | INT-B002 — WeOwnLLM.F1visa.Net | ✅ LIVE |
-| **LLM Backend** | WeOwnLLM (forked AnythingLLM, hardened by Minimus.io) | ✅ Available |
+| **LLM Backend** | WeOwnChat (forked AnythingLLM, hardened by Minimus.io) | ✅ Available |
 | **Bilingual AI** | Z.ai GLM 5.2 (English + Chinese/Mandarin) | ✅ Verified |
 | **Marketing site** | Astro 7 + EmDash CMS + Cloudflare Workers (D1 + KV) | ✅ LIVE |
 | **Analytics** | PostHog (client + `posthog-node` server) | 🟡 Code-complete, env pending — see [§8.4](#84-product-analytics--posthog-integration) |
@@ -391,7 +391,7 @@ ARRIVAL → FREE ASSESSMENT → EXPLORER (Free)
 | Requirement | Specification | Priority |
 |:------------|:--------------|:--------:|
 | **Instance** | INT-B002 — WeOwnLLM.F1visa.Net | ✅ LIVE |
-| **LLM Backend** | WeOwnLLM (forked AnythingLLM) | P0 |
+| **LLM Backend** | WeOwnChat (forked AnythingLLM) | P0 |
 | **Bilingual** | Z.ai GLM 5.2 — English + Chinese verified | P1 |
 | **Hosting** | DigitalOcean droplet + Cloudflare CDN | P0 |
 | **Community** | WordPress + bbPress/Discourse + live chat plugin | P1 |

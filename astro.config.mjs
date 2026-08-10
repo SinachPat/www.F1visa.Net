@@ -8,6 +8,14 @@ import emdash, { local } from "emdash/astro";
 export default defineConfig({
 	output: "server",
         adapter: cloudflare({ legacy_env: false }),
+	redirects: {
+		// WeOwnLLM was renamed to WeOwnChat. Keep the old path working so
+		// existing inbound links, bookmarks, and indexed results don't 404.
+		"/weownllm": {
+			status: 301,
+			destination: "/weownchat",
+		},
+	},
 	image: {
 		layout: "constrained",
 		responsiveStyles: true,
