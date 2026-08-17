@@ -29,16 +29,7 @@ const enabled = import.meta.env.PROD;
 					s.parentNode.insertBefore(g, s);
 				})();
 			</script>
-			<noscript>
-				<p>
-					<img
-						referrerpolicy="no-referrer-when-downgrade"
-						src="https://matomo.weown.tools/matomo.php?idsite=4&amp;rec=1"
-						style="border: 0"
-						alt=""
-					/>
-				</p>
-			</noscript>
+			{/* noscript fallback pixel is rendered in the document body (see Base.astro) */}
 		</>
 	)
 }
